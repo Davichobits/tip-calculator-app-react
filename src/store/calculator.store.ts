@@ -1,13 +1,13 @@
 import { create } from 'zustand';
 
 interface Calculator {
-  bill: number;
+  bill: number ;
   people: number;
-  tipPorcentage: number;
+  tipPercent: number;
   
   setBill: (value: number) => void;
   setPeople: (value: number) => void;
-  setTipPorcentage: (value: number) => void;
+  setTipPercent: (value: number) => void;
 
   // calculados
   tipAmount: ()=> number;
@@ -17,7 +17,7 @@ interface Calculator {
 export const useCalculatorStore = create<Calculator>((set, get)=>({
   bill: 0,
   people:1,
-  tipPorcentage: 10,
+  tipPercent: 10,
 
   setBill: (value:number)=>set(()=>({
     bill: value,
@@ -25,11 +25,11 @@ export const useCalculatorStore = create<Calculator>((set, get)=>({
   setPeople: (value:number) => set(()=>({
     people: value,
   })),
-  setTipPorcentage: (value:number)=>set(()=>({
-    tipPorcentage: value,
+  setTipPercent: (value:number)=>set(()=>({
+    tipPercent: value,
   })),
 
-  tipAmount: () => (get().bill * get().tipPorcentage / 100) / get().people,
-  total: () => (get().bill + get().bill * get().tipPorcentage / 100) / get().people,
+  tipAmount: () => (get().bill * get().tipPercent / 100) / get().people,
+  total: () => (get().bill + get().bill * get().tipPercent / 100) / get().people,
 
 }))
