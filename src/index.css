@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./assets/fonts/Space_Mono/SpaceMono-Regular.ttf") format("woff2");
+}
+
+@theme {
+  --color-Green-200: hsl(173, 61%, 77%);
+  --color-Green-400: hsl(172, 67%, 45%);
+  --color-Green-900: hsl(183, 100%, 15%);
+  --color-Grey-500: hsl(186, 14%, 43%);
+  --color-Grey-400: hsl(184, 14%, 56%);
+  --color-Grey-200: hsl(185, 41%, 84%);
+  --color-Grey-50: hsl(189, 47%, 97%);
+  --color-White: hsl(0, 100%, 100%);
+  --font-Space-Mono: "Space Mono";
+}
+
+body{
+  @apply bg-Grey-200 font-Space-Mono flex justify-center;
+}
+
+@utility input-none {
+  @apply [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none;
+}
+
+/* [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none  */

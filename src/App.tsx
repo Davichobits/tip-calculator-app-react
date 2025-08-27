@@ -1,10 +1,13 @@
-
+import { Calculator } from './components/calculator'
 function App() {
 
   return (
-    <>
-      <h1>main</h1>
-    </>
+    <main className='w-[375px]'>
+      <div className='flex justify-center my-10'>
+        <img src="/images/logo.svg" alt="logo" />
+      </div>
+      <Calculator />
+    </main>
   )
 }
 
