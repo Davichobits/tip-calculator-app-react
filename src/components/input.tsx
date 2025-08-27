@@ -3,11 +3,13 @@ import { useState } from 'react';
 interface Props {
   label: string;
   value: number;
+  iconUrl: string;
   variant: "bill" | "people"
   setValue: (value: number) => void;
 }
 
-export const Input = ({ label, value, variant, setValue }: Props) => {
+export const Input = ({ label, value, variant,iconUrl, setValue }: Props) => {
+  console.log(value);
   const [localValue, setLocalValue] = useState<string>(value.toString());
   const [error, setError] = useState<boolean>(false);
 
@@ -38,23 +40,26 @@ export const Input = ({ label, value, variant, setValue }: Props) => {
   };
 
   return (
-    <div className='flex flex-col'>
-      <div className='flex justify-between'>
-        <label htmlFor='bill'>{label}</label>
+    <div className='flex flex-col mb-8'>
+      <div className='flex justify-between mb-2'>
+        <label className='font-bold text-Grey-500' htmlFor='bill'>{label}</label>
         {
           variant === 'people' && <p className={`text-Orange-400 font-bold ${error ? 'block': 'hidden'}`}>Can't be zero</p>
         }
       </div>
-      <input
-        id='people'
-        type='text'
-        value={localValue}
-        onChange={handleChange}
-        className={`
-          bg-Grey-50 rounded-[5px] focus:ouline-1 focus:outline-Green-400 input-none cursor-pointer 
-          ${error && 'focus:outline-Orange-400'} 
-        `}
-      />
+      <div className='relative'>
+        <input
+          id='people'
+          type='text'
+          value={localValue}
+          onChange={handleChange}
+          className={`
+            bg-Grey-50 rounded-[5px] focus:ouline-1 focus:outline-Green-400 input-none cursor-pointer h-12 w-full text-right pr-4 text-2xl font-bold text-Green-900 
+            ${error && 'focus:outline-Orange-400'} 
+          `}
+        />
+        <img className='absolute top-4 left-2' src={iconUrl} alt="icon" />
+      </div>
     </div>
   );
 };

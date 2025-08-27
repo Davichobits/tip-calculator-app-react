@@ -10,16 +10,25 @@ export const Calculator = () => {
     store.setTipPercent(newPercent);
   };
 
+  console.log('store', store.bill);
+
   const handleCustomClick = () => {
-    console.log('Custom');
+    const customPercent = prompt('Ingresa un porcentaje (%)');
+    store.setTipPercent(Number(customPercent));
   };
 
   return (
-    <div className='bg-White p-8 rounded-[25px]'>
-      <Input variant='bill' value={store.bill} setValue={store.setBill} label='Bill' />
-      <h2>Select Tip %</h2>
+    <div className='bg-White p-8 rounded-[25px] my-10'>
+      <Input 
+        label='Bill' 
+        variant='bill' 
+        value={store.bill} 
+        setValue={store.setBill} 
+        iconUrl='/images/icon-dollar.svg'
+      />
+      <h2 className='font-bold text-Grey-500 mb-2'>Select Tip %</h2>
 
-      <div className='grid grid-cols-2 gap-4'>
+      <div className='grid grid-cols-2 gap-4 mb-8'>
         {tips.map((tip) => (
           <Button key={tip} percent={tip} onClick={handleClick} />
         ))}
@@ -29,8 +38,9 @@ export const Calculator = () => {
       <Input
         variant='people'
         value={store.people}
-        setValue={store.setPeople}
         label='Number of people'
+        setValue={store.setPeople}
+        iconUrl='/images/icon-person.svg'
       />
 
       <Total />
