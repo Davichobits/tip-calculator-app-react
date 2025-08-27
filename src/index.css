@@ -9,6 +9,7 @@
 }
 
 @theme {
+  --color-Orange-400: hsl(13, 70%, 60%);
   --color-Green-200: hsl(173, 61%, 77%);
   --color-Green-400: hsl(172, 67%, 45%);
   --color-Green-900: hsl(183, 100%, 15%);
@@ -24,8 +25,3 @@ body{
   @apply bg-Grey-200 font-Space-Mono flex justify-center;
 }
 
-@utility input-none {
-  @apply [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none;
-}
-
-/* [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none  */

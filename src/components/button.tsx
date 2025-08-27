@@ -18,7 +18,7 @@ export const Button = ({ percent = 5, onClick, isCustom = false }: Props) => {
 
   return (
     <button
-      className= {`text-2xl font-bold h-12 rounded-[5px] cursor-pointer ${isActive ? 'bg-Green-200 text-Green-900' : styles}`}
+      className= {`text-2xl font-bold h-12 rounded-[5px] cursor-pointer ${isActive ? 'bg-Green-200 text-Green-900' : styles} transition-colors`}
       onClick={()=>onClick(percent)}>
       {isCustom ? 'Custom': `${percent}%` }
     </button>

@@ -16,7 +16,7 @@ export const Calculator = () => {
 
   return (
     <div className='bg-White p-8 rounded-[25px]'>
-      <Input value={store.bill} setValue={store.setBill} label='Bill' />
+      <Input variant='bill' value={store.bill} setValue={store.setBill} label='Bill' />
       <h2>Select Tip %</h2>
 
       <div className='grid grid-cols-2 gap-4'>
@@ -27,6 +27,7 @@ export const Calculator = () => {
       </div>
 
       <Input
+        variant='people'
         value={store.people}
         setValue={store.setPeople}
         label='Number of people'

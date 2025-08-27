@@ -22,9 +22,11 @@ export const useCalculatorStore = create<Calculator>((set, get)=>({
   setBill: (value:number)=>set(()=>({
     bill: value,
   })),
-  setPeople: (value:number) => set(()=>({
+  setPeople: (value:number) => {
+    if (value <= 0) return;
+    set(()=>({
     people: value,
-  })),
+  }))},
   setTipPercent: (value:number)=>set(()=>({
     tipPercent: value,
   })),
