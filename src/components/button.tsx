@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useCalculatorStore } from '../store/calculator.store';
 
 interface Props {
@@ -16,11 +17,15 @@ export const Button = ({ percent = 5, onClick, isCustom = false }: Props) => {
 
   const isActive = percent === store.tipPercent
 
+  const customPercent = store.hasCustomValue ? `${percent}%` : 'Custom';
+
+  useEffect(()=>{}, [percent])
+
   return (
     <button
-      className= {`text-2xl font-bold h-12 rounded-[5px] cursor-pointer ${isActive ? 'bg-Green-200 text-Green-900' : styles} transition-colors`}
+      className= {`text-2xl font-bold h-12 rounded-[5px] cursor-pointer ${isActive && !isCustom ? 'bg-Green-200 text-Green-900' : styles} transition-colors`}
       onClick={()=>onClick(percent)}>
-      {isCustom ? 'Custom': `${percent}%` }
+      {isCustom ? customPercent: `${percent}%` }
     </button>
   )
 }

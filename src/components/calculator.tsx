@@ -7,12 +7,14 @@ export const Calculator = () => {
   const store = useCalculatorStore();
 
   const handleClick = (newPercent:number) => {
+    store.setHasCustomValue(false);
     store.setTipPercent(newPercent);
   };
 
   const handleCustomClick = () => {
     const customPercent = prompt('Ingresa un porcentaje (%)');
     store.setTipPercent(Number(customPercent));
+    store.setHasCustomValue(true);
   };
 
   return (
@@ -30,7 +32,7 @@ export const Calculator = () => {
         {tips.map((tip) => (
           <Button key={tip} percent={tip} onClick={handleClick} />
         ))}
-        <Button percent={0} onClick={handleCustomClick} isCustom />
+        <Button percent={store.tipPercent} onClick={handleCustomClick} isCustom />
       </div>
 
       <Input
