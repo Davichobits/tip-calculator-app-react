@@ -6,7 +6,7 @@ export const Total = () => {
   const store = useCalculatorStore()
 
   const handleReset = () => {
-    store.setBill(100)
+    store.reset()
   }
 
   return (

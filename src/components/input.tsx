@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Props {
   label: string;
@@ -9,13 +9,14 @@ interface Props {
 }
 
 export const Input = ({ label, value, variant,iconUrl, setValue }: Props) => {
-  console.log(value);
+  
+  
   const [localValue, setLocalValue] = useState<string>(value.toString());
   const [error, setError] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
-    const userInput = e.target.value
+    const userInput = e.target.value;
 
     const decimalsRegExp = /^\d*\.?\d*$/; 
     const numbersRegExp = /^\d*$/;
@@ -38,6 +39,10 @@ export const Input = ({ label, value, variant,iconUrl, setValue }: Props) => {
       setValue(Number(userInput));
     }
   };
+
+  useEffect(()=>{
+    setLocalValue(value.toString())
+  },[value])
 
   return (
     <div className='flex flex-col mb-8'>

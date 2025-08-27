@@ -10,8 +10,6 @@ export const Calculator = () => {
     store.setTipPercent(newPercent);
   };
 
-  console.log('store', store.bill);
-
   const handleCustomClick = () => {
     const customPercent = prompt('Ingresa un porcentaje (%)');
     store.setTipPercent(Number(customPercent));
