@@ -27,7 +27,7 @@ export const Modal = () => {
       className='bg-black/50 w-full fixed inset-0 h-screen grid place-content-center'
     >
       <div
-        className='w-[375px] md:w-[600px] py-10 px-6 bg-white rounded-xl'
+        className='w-[375px] py-10 px-6 bg-white rounded-xl'
       >
         <Input 
           label='Ingresa un porcentaje (%)' 
