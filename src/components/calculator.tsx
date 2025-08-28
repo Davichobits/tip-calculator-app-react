@@ -1,5 +1,5 @@
 import { useCalculatorStore } from '../store/calculator.store';
-import { Button, Input, Total } from '../components';
+import { PercentButton, Input, Total, Modal } from '../components';
 
 const tips: number[] = [5, 10, 15, 25, 50];
 
@@ -12,8 +12,9 @@ export const Calculator = () => {
   };
 
   const handleCustomClick = () => {
-    const customPercent = prompt('Ingresa un porcentaje (%)');
-    store.setTipPercent(Number(customPercent));
+    // const customPercent = prompt('Ingresa un porcentaje (%)');
+    // store.setTipPercent(Number(customPercent));
+    store.setShowModal(true);
     store.setHasCustomValue(true);
   };
 
@@ -28,11 +29,15 @@ export const Calculator = () => {
           iconUrl='/images/icon-dollar.svg'
         />
         <h2 className='font-bold text-Grey-500 mb-2'>Select Tip %</h2>
+
         <div className='grid grid-cols-2 gap-4 mb-8'>
+
           {tips.map((tip) => (
-            <Button key={tip} percent={tip} onClick={handleClick} />
+            <PercentButton key={tip} percent={tip} onClick={handleClick} />
           ))}
-          <Button percent={store.tipPercent} onClick={handleCustomClick} isCustom />
+        
+          <PercentButton percent={store.tipPercent} onClick={handleCustomClick} isCustom />
+        
         </div>
         <Input
           variant='people'
@@ -44,6 +49,9 @@ export const Calculator = () => {
       </div>
 
       <Total />
+      {
+        store.showModal && (<Modal />)
+      }
     </div>
   );
 };

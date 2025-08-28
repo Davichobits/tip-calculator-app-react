@@ -6,12 +6,14 @@ interface Calculator {
   people: number;
   tipPercent: number;
   hasCustomValue: boolean;
+  showModal: boolean;
 
   setBill: (value: number) => void;
   setPeople: (value: number) => void;
   setTipPercent: (value: number) => void;
   reset: () => void;
   setHasCustomValue: (value: boolean) => void;
+  setShowModal: (value: boolean) => void;
 
   // calculados
   tipAmount: () => number;
@@ -24,6 +26,7 @@ export const useCalculatorStore = create<Calculator>()(
     people: 1,
     tipPercent: 5,
     hasCustomValue: false,
+    showModal:false,
 
     setBill: (value: number) =>
       set(() => ({
@@ -41,6 +44,9 @@ export const useCalculatorStore = create<Calculator>()(
       })),
     setHasCustomValue: (value)=>set(()=>({
       hasCustomValue: value,
+    })),
+    setShowModal: (value)=>set(()=>({
+      showModal: value,
     })),
     reset: () =>set(store.getInitialState()),
 

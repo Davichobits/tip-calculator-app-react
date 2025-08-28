@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 interface Props {
   label: string;
   value: number;
-  iconUrl: string;
+  iconUrl?: string;
   variant: "bill" | "people"
   setValue: (value: number) => void;
 }
@@ -63,7 +63,9 @@ export const Input = ({ label, value, variant,iconUrl, setValue }: Props) => {
             ${error && 'focus:outline-Orange-400'} 
           `}
         />
-        <img className='absolute top-4 left-2' src={iconUrl} alt="icon" />
+        {
+          iconUrl && (<img className='absolute top-4 left-2' src={iconUrl} alt="icon" />)
+        }
       </div>
     </div>
   );

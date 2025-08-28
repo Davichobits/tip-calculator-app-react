@@ -1,5 +1,5 @@
 import { useCalculatorStore } from '../store/calculator.store'
-import { TotalItem } from '../components'
+import { TotalItem, Button } from '../components'
 
 export const Total = () => {
 
@@ -17,7 +17,7 @@ export const Total = () => {
           <TotalItem text='Total' value={store.total()} />
         </div>
 
-        <button onClick={handleReset} className='bg-Green-400 text-Green-900 uppercase font-bold text-center w-full rounded-[5px] text-[20px] h-12 cursor-pointer hover:bg-Green-200 transition-colors'>Reset</button>
+        <Button text="reset" onClick={handleReset}  />
       </div>
   )
 }
