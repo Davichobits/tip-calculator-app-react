@@ -47,19 +47,19 @@ export const Input = ({ label, value, variant,iconUrl, setValue }: Props) => {
   return (
     <div className='flex flex-col mb-8'>
       <div className='flex justify-between mb-2'>
-        <label className='font-bold text-Grey-500' htmlFor='bill'>{label}</label>
+        <label className='font-bold text-Grey-500' htmlFor={variant}>{label}</label>
         {
           variant === 'people' && <p className={`text-Orange-400 font-bold ${error ? 'block': 'hidden'}`}>Can't be zero</p>
         }
       </div>
       <div className='relative'>
         <input
-          id='people'
-          type='text'
+          id={variant}
+          type='number'
           value={localValue}
           onChange={handleChange}
           className={`
-            bg-Grey-50 rounded-[5px] focus:ouline-1 focus:outline-Green-400 input-none cursor-pointer h-12 w-full text-right pr-4 text-2xl font-bold text-Green-900 
+            bg-Grey-50 rounded-[5px] focus:ouline-1 focus:outline-Green-400 input-none cursor-pointer h-12 w-full text-right pr-4 text-2xl font-bold text-Green-900 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none
             ${error && 'focus:outline-Orange-400'} 
           `}
         />

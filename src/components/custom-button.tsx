@@ -54,8 +54,8 @@ export const CustomButton = () => {
       {isEditable ? (
         <input 
           onChange={handleChange}
-          className='p-2 focus:outline-Green-400 text-right caret-Green-400 text-2xl font-bold text-Green-900'
-          type='text'
+          className='p-2 focus:outline-Green-400 text-right caret-Green-400 text-2xl font-bold text-Green-900 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none'
+          type='number'
           autoFocus
           onBlur={handleBlur}
           onKeyDown={handleEnter} 
